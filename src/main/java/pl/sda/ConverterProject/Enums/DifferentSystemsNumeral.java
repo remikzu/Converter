@@ -46,10 +46,4 @@ public enum DifferentSystemsNumeral {
     public int getValue() {
         return value;
     }
-
-    public static List<DifferentSystemsNumeral> getReverseSortedValues() {
-        return Arrays.stream(values())
-                .sorted(Comparator.comparing((DifferentSystemsNumeral e) -> e.value).reversed())
-                .collect(Collectors.toList());
-    }
 }

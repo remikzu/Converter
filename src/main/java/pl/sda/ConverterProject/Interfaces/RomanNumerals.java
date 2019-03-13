@@ -5,8 +5,9 @@ package pl.sda.ConverterProject.Interfaces;
  */
 public interface RomanNumerals {
 
-    Boolean isRomanNumberValid(String romanNumber);
+    public Boolean isRomanNumberValid(String romanNumber);
     Integer convertRomanToDecimal(String romanNumber);
+    String convertRomanToOutput(String romanNumber, Integer radix);
     String convertDecimalToRoman(Integer decimalNumber);
-
+    String convertInputToRoman(String decimalNumber, Integer radix);
 }

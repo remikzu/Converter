@@ -4,9 +4,13 @@ package pl.sda.ConverterProject.Interfaces;
  * @author Remigiusz Zudzin
  */
 public interface NumeralSystemConvertingMethods {
-    public long[] numberToIntTabConverter(String hexadecimalNumber);
-    public boolean isDifferentSystemNumberValid(String hexadecimalNumber);
-    public long convertDifferentSystemNumberToDecimal(String hexadecimalNumber);
-    public long convertDecimalToDifferentSystemNumber(String differentSystemNumber);
+
+    public void changeInputFormat();
+    public void changeOutputFormat();
+    public void convertDifferentSystemNumber();
+    public void fromDifferentSystemToRoman();
+    public void fromRomanToDifferentSystem();
+    public void fromRomanToDecimal();
+    public void fromDecimalToRoman();
 
 }

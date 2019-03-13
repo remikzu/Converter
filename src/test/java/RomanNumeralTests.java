@@ -5,7 +5,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import pl.sda.ConverterProject.Methods.RomanNumeralMethods;
 import static org.assertj.core.api.Assertions.*;
-import org.junit.jupiter.api.Assertions;
 
 /**
  * @author Remigiusz Zudzin
@@ -29,24 +28,24 @@ class RomanNumeralTests {
     @ParameterizedTest
     @CsvSource({"MXVI, 1016", "MMM, 3000"})
     void isRomanNumberConversionCorrect(String romanNumber, Integer decimalNumber) {
-        assertThat(roman.convertRomanToDecimal(romanNumber)).isEqualTo(decimalNumber);
+        assertThat(roman.convertRomanToOutput(romanNumber)).isEqualTo(decimalNumber);
     }
 
     @ParameterizedTest
     @CsvSource({"MXVI, 1610", "MMM, 300"})
     void isRomanNumberConversionNotCorrect(String romanNumber, Integer decimalNumber) {
-        assertThat(roman.convertRomanToDecimal(romanNumber)).isNotEqualTo(decimalNumber);
+        assertThat(roman.convertRomanToOutput(romanNumber)).isNotEqualTo(decimalNumber);
     }
 
     @ParameterizedTest
     @CsvSource({"1016, MXVI", "3000, MMM"})
     void isDecimalNumberConversionCorrect(Integer decimalNumber, String romanNumber) {
-        assertThat(roman.convertDecimalToRoman(decimalNumber)).isEqualTo(romanNumber);
+        assertThat(roman.convertInputToRoman(decimalNumber)).isEqualTo(romanNumber);
     }
 
     @ParameterizedTest
     @CsvSource({"1610, MXVI", "300, MMM"})
     void isDecimalNumberConversionNotCorrect(Integer decimalNumber, String romanNumber) {
-        assertThat(roman.convertDecimalToRoman(decimalNumber)).isNotEqualTo(romanNumber);
+        assertThat(roman.convertInputToRoman(decimalNumber)).isNotEqualTo(romanNumber);
     }
 }

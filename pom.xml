@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>pl.sda.ConverterProject.Main</mainClass>
+                            <mainClass>pl.sda.ConverterProject.Main.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -1,4 +1,4 @@
-package pl.sda.ConverterProject;
+package pl.sda.ConverterProject.Main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

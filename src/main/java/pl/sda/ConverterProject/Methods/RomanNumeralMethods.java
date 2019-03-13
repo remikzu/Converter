@@ -85,7 +85,7 @@ public class RomanNumeralMethods implements RomanNumerals {
      */
     @Override
     public String convertRomanToOutput(String romanNumber, Integer radix) {
-        if(radix < Character.MIN_RADIX || radix > Character.MAX_RADIX) {
+        if(radix >= Character.MIN_RADIX && radix <= Character.MAX_RADIX) {
             if(isRomanNumberValid(romanNumber)) {
                 return Integer.toString(convertRomanToDecimal(romanNumber), radix);
             } else throw new IllegalArgumentException("Niepoprawna liczba rzymska!");
@@ -100,7 +100,7 @@ public class RomanNumeralMethods implements RomanNumerals {
      */
     @Override
     public String convertInputToRoman(String input, Integer radix) {
-        if(radix < Character.MIN_RADIX || radix > Character.MAX_RADIX) {
+        if(radix >= Character.MIN_RADIX && radix <= Character.MAX_RADIX) {
             return convertDecimalToRoman(Integer.parseInt(input, radix));
         } else throw new IllegalArgumentException("Radix musi być w przedziale od 2 do 36!");
 

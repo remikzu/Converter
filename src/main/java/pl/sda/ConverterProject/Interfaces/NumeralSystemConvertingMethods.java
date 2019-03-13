@@ -5,12 +5,12 @@ package pl.sda.ConverterProject.Interfaces;
  */
 public interface NumeralSystemConvertingMethods {
 
-    public void changeInputFormat();
-    public void changeOutputFormat();
-    public void convertDifferentSystemNumber();
-    public void fromDifferentSystemToRoman();
-    public void fromRomanToDifferentSystem();
-    public void fromRomanToDecimal();
-    public void fromDecimalToRoman();
+    void changeInputFormat();
+    void changeOutputFormat();
+    void convertDifferentSystemNumber();
+    void fromDifferentSystemToRoman();
+    void fromRomanToDifferentSystem();
+    void fromRomanToDecimal();
+    void fromDecimalToRoman();
 
 }

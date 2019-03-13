@@ -25,27 +25,29 @@ class RomanNumeralTests {
         assertThat(roman.isRomanNumberValid(romanNumber)).isEqualTo(false);
     }
 
-    @ParameterizedTest
-    @CsvSource({"MXVI, 1016", "MMM, 3000"})
-    void isRomanNumberConversionCorrect(String romanNumber, Integer decimalNumber) {
-        assertThat(roman.convertRomanToOutput(romanNumber)).isEqualTo(decimalNumber);
-    }
-
-    @ParameterizedTest
-    @CsvSource({"MXVI, 1610", "MMM, 300"})
-    void isRomanNumberConversionNotCorrect(String romanNumber, Integer decimalNumber) {
-        assertThat(roman.convertRomanToOutput(romanNumber)).isNotEqualTo(decimalNumber);
-    }
-
-    @ParameterizedTest
-    @CsvSource({"1016, MXVI", "3000, MMM"})
-    void isDecimalNumberConversionCorrect(Integer decimalNumber, String romanNumber) {
-        assertThat(roman.convertInputToRoman(decimalNumber)).isEqualTo(romanNumber);
-    }
-
-    @ParameterizedTest
-    @CsvSource({"1610, MXVI", "300, MMM"})
-    void isDecimalNumberConversionNotCorrect(Integer decimalNumber, String romanNumber) {
-        assertThat(roman.convertInputToRoman(decimalNumber)).isNotEqualTo(romanNumber);
-    }
+    //TODO Testy dla metod związanych z liczbami Romańskimi
+    //TODO dokumentacja dla testów
+//    @ParameterizedTest
+//    @CsvSource({"MXVI, 1016", "MMM, 3000"})
+//    void isRomanNumberConversionCorrect(String romanNumber, Integer decimalNumber) {
+//        assertThat(roman.convertRomanToOutput(romanNumber)).isEqualTo(decimalNumber);
+//    }
+//
+//    @ParameterizedTest
+//    @CsvSource({"MXVI, 1610", "MMM, 300"})
+//    void isRomanNumberConversionNotCorrect(String romanNumber, Integer decimalNumber) {
+//        assertThat(roman.convertRomanToOutput(romanNumber)).isNotEqualTo(decimalNumber);
+//    }
+//
+//    @ParameterizedTest
+//    @CsvSource({"1016, MXVI", "3000, MMM"})
+//    void isDecimalNumberConversionCorrect(Integer decimalNumber, String romanNumber) {
+//        assertThat(roman.convertInputToRoman(decimalNumber)).isEqualTo(romanNumber);
+//    }
+//
+//    @ParameterizedTest
+//    @CsvSource({"1610, MXVI", "300, MMM"})
+//    void isDecimalNumberConversionNotCorrect(Integer decimalNumber, String romanNumber) {
+//        assertThat(roman.convertInputToRoman(decimalNumber)).isNotEqualTo(romanNumber);
+//    }
 }

@@ -1,9 +1,4 @@
 package pl.sda.ConverterProject.Methods;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import pl.sda.ConverterProject.Enums.DifferentSystemsNumeral;
 import pl.sda.ConverterProject.Interfaces.NumeralSystemConvertingMethods;
 
 import java.util.Scanner;
@@ -11,16 +6,25 @@ import java.util.Scanner;
 /**
  * @author Remigiusz Zudzin
  */
+//TODO dokumentacja
 public class DifferentSystemsNumeralMethods implements NumeralSystemConvertingMethods {
 
     private int inputFormat;
     private int outputFormat;
-    private Scanner sc;
-    private final static RomanNumeralMethods romanNumeralMethods = new RomanNumeralMethods();
+    private Scanner sc = new Scanner(System.in);
+    private static RomanNumeralMethods romanNumeralMethods = new RomanNumeralMethods();
 
     DifferentSystemsNumeralMethods() {
         this.inputFormat = 10;
         this.outputFormat = 10;
+    }
+
+    int getInputFormat() {
+        return inputFormat;
+    }
+
+    int getOutputFormat() {
+        return outputFormat;
     }
 
     @Override
@@ -28,7 +32,7 @@ public class DifferentSystemsNumeralMethods implements NumeralSystemConvertingMe
         System.out.println("Podaj format wejściowy który chcesz ustawić:");
         int format = sc.nextInt();
         if (format < Character.MIN_RADIX || format > Character.MAX_RADIX) {
-            throw new IllegalArgumentException("Radix musi być liczbą pomiędzy 2 a 36!");
+            System.out.println("Radix musi być liczbą pomiędzy 2 a 36!");
         } else {
             inputFormat = format;
         }
@@ -38,30 +42,28 @@ public class DifferentSystemsNumeralMethods implements NumeralSystemConvertingMe
     public void changeOutputFormat() {
         System.out.println("Podaj format wyjściowy który chcesz ustawić:");
         int format = sc.nextInt();
-        if (format < Character.MIN_RADIX || format > Character.MAX_RADIX) {
-            throw new IllegalArgumentException("Radix musi być liczbą pomiędzy 2 a 36!");
-        } else {
+        if (format >= Character.MIN_RADIX && format <= Character.MAX_RADIX) {
             outputFormat = format;
+        } else {
+            System.out.println("Radix musi być liczbą pomiędzy 2 a 36!");
         }
     }
 
     @Override
     public void convertDifferentSystemNumber() {
         System.out.println("Podaj liczbę do zamiany: ");
-        String differentSystemNumber = sc.nextLine();
-        int intNumber = Integer.parseInt(differentSystemNumber, inputFormat);
-        System.out.println("Wartość: " + Integer.toString(intNumber,outputFormat));
+        String differentSystemNumber = sc.next();
+        System.out.println(Integer.toString(Integer.parseInt(differentSystemNumber, inputFormat), outputFormat));
     }
 
     @Override
     public void fromDifferentSystemToRoman() {
         System.out.println("Podaj liczbę do zamiany na rzymską:");
-        String number = sc.nextLine();
-        String numString = number.toUpperCase();
+        String number = sc.next();
 
         try {
-            if (Integer.valueOf(numString, inputFormat) > 0 && Integer.valueOf(numString, outputFormat) < 4000) {
-                String romanNumber = romanNumeralMethods.convertInputToRoman(numString, inputFormat);
+            if (Integer.valueOf(number, inputFormat) > 0 && Integer.valueOf(number, inputFormat) < 4000) {
+                String romanNumber = romanNumeralMethods.convertInputToRoman(number, inputFormat);
                 System.out.println("Wartość: " + romanNumber);
             } else {
                 System.out.println("Podana liczba musi mieścić się w przedziale od 1 do 3999!");
@@ -74,8 +76,8 @@ public class DifferentSystemsNumeralMethods implements NumeralSystemConvertingMe
     @Override
     public void fromRomanToDifferentSystem() {
         System.out.println("Podaj liczbę rzymską do zamiany na wybrany format:");
-        sc.nextLine();
-        String romanNumber = sc.nextLine().toUpperCase();
+        String number = sc.next();
+        String romanNumber = number.toUpperCase();
 
         if (romanNumeralMethods.isRomanNumberValid(romanNumber)) {
             String result = romanNumeralMethods.convertRomanToOutput(romanNumber, outputFormat);
@@ -88,8 +90,8 @@ public class DifferentSystemsNumeralMethods implements NumeralSystemConvertingMe
     @Override
     public void fromRomanToDecimal() {
         System.out.println("Podaj liczbę rzymską: ");
-        sc.nextLine();
-        String romanNumber = sc.nextLine().toUpperCase();
+        String number = sc.next();
+        String romanNumber = number.toUpperCase();
         if (romanNumeralMethods.isRomanNumberValid(romanNumber)) {
             Integer result = romanNumeralMethods.convertRomanToDecimal(romanNumber);
             System.out.println("Wartość " + result);

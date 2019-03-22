@@ -24,7 +24,7 @@ public class ConsoleGUI {
             System.out.println("3. Zamień liczbę rzymską na arabską");
             System.out.println("4. Zamień liczbę arabską na rzymską");
             System.out.println("5. Zamień liczbę rzymską na liczbę w wybranym formacie wyjściowym");
-            System.out.println("6. Zamień liczbę w wybranym formacie wejściowym na rzrymską");
+            System.out.println("6. Zamień liczbę w wybranym formacie wejściowym na rzymską");
             System.out.println("7. Zamień liczbę w wybranym formacie wejściowym" +
                     " na liczbę w wybranym formacie wyjściowym");
             System.out.println("0. Wyjście z programu");
